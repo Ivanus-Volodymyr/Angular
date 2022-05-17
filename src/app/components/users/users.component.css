@@ -1,0 +1,11 @@
+.users-block{
+  display: flex;
+  flex-direction: row;
+
+}
+.users{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48%;
+}

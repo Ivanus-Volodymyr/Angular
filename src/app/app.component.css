@@ -1,12 +1,11 @@
-.block{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.posts-comments{
+.header{
   display: flex;
   flex-direction: row;
-  align-items: start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  column-gap: 30px;
+}
+.header a button {
+  padding: 20px;
+  margin: 20px;
 }

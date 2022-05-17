@@ -1,7 +1,8 @@
-<div class="block">
-  <app-users></app-users>
-  <div class="posts-comments">
-    <app-posts></app-posts>
-    <app-comments></app-comments>
-  </div>
+<div class="header">
+  <a routerLink="users"><button>Users</button></a>
+  <a routerLink="posts"><button>Posts</button></a>
+  <a routerLink="comments"><button>Comments</button></a>
 </div>
+
+<router-outlet></router-outlet>
+

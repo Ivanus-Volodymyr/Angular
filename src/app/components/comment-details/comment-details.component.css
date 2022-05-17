@@ -1,0 +1,17 @@
+.comment-details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ade6e4;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 800px;
+  padding: 60px;
+  margin: 10px;
+}
+hr{
+  height: 1px;
+  background-color: black;
+  width: 300px;
+}
