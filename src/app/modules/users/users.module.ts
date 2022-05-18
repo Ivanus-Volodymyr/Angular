@@ -6,6 +6,7 @@ import { UsersRoutingModule } from './users-routing.module';
 
 import {UsersComponent} from "./users.components/users/users.component";
 import {UsersService} from "./users.service";
+import { UserComponent } from './users.components/user/user.component';
 
 
 
@@ -13,11 +14,12 @@ import {UsersService} from "./users.service";
 @NgModule({
   declarations: [
     UsersComponent,
+    UserComponent,
   ],
   imports: [
     CommonModule,
     UsersRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers:[UsersService],
 })
