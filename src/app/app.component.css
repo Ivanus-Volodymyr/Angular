@@ -1,12 +1,1 @@
-.block{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.posts-comments{
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  justify-content: space-between;
-}
+
