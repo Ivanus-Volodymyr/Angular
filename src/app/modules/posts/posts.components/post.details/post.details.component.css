@@ -1,0 +1,12 @@
+.post-details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  padding: 30px;
+  border: 2px solid red;
+  border-radius: 40px;
+  background: #f3acac;
+  margin-top: 20px;
+}
