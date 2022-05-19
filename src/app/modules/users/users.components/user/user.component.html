@@ -1,6 +1,6 @@
 <div class="user-block">
-  <div>{{user.id}}</div>
-  <div>{{user.name}}</div>
-  <div>{{user.email}}</div>
+  <div>User Id : {{user.id}}</div>
+  <div>User name : {{user.name}}</div>
+  <div>User Email : {{user.email}}</div>
   <a [routerLink]="['details', user.id]" [state]="{data: user}">User details</a>
 </div>
