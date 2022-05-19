@@ -2,4 +2,5 @@
   <div>{{user.id}}</div>
   <div>{{user.name}}</div>
   <div>{{user.email}}</div>
+  <a [routerLink]="['details', user.id]" [state]="{data: user}">User details</a>
 </div>

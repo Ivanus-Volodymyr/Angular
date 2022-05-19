@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
@@ -15,5 +15,9 @@ export class UsersService {
 
   getUsers(): Observable<IUser[]> {
     return this.httpClient.get<IUser[]>(urls.users)
+  }
+
+  getUserById(id: string): Observable<IUser> {
+    return this.httpClient.get<IUser>(`${urls.users}/${id}`)
   }
 }
