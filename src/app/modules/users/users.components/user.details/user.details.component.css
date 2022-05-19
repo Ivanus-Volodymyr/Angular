@@ -1,0 +1,12 @@
+.user-details{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px;
+  margin: 10px;
+  border: 1px solid blue;
+  border-radius: 30px;
+  background: #a1efef;
+  width: 600px;
+}
