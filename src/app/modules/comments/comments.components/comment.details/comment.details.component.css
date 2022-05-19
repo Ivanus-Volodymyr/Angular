@@ -1,0 +1,13 @@
+.comment-details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  padding: 20px;
+  margin: 20px;
+  background: #b3d5f3;
+  border: 3px solid #19344b;
+  border-radius: 30px;
+  row-gap: 10px;
+}
