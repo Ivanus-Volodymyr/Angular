@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {UsersService} from "../../users.service";
 import {IUser} from "../../users.models";
@@ -18,8 +18,12 @@ export class UserDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(value => this.userId = value['id'])
-    this.userService.getUserById(this.userId).subscribe(value => console.log(value))
+    if (history.state.data) {
+      this.activatedRoute.params.subscribe(value => this.userDetails = history.state.data);
+      return;
+    }
+    this.activatedRoute.params.subscribe(value => this.userId = value['id']);
+    this.userService.getUserById(this.userId).subscribe(value => console.log(value));
   }
 
 }
