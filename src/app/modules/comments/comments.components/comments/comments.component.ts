@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
-import {CommentsService} from "../../comments.service";
 import {IComment} from "../../comments.models";
 
 @Component({
@@ -12,11 +12,11 @@ export class CommentsComponent implements OnInit {
 
   comments: IComment[];
 
-  constructor(private commentsService: CommentsService) {
+  constructor(private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.commentsService.getComments().subscribe(value => this.comments = value)
+    this.activatedRoute.data.subscribe(({commentsData}) => this.comments = commentsData);
   }
 
 }
