@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {
   Resolve,
   RouterStateSnapshot,
-  ActivatedRouteSnapshot
+  ActivatedRouteSnapshot, Router
 } from '@angular/router';
 import {Observable} from 'rxjs';
 
@@ -14,10 +14,16 @@ import {CommentsService} from "./comments.service";
 })
 export class CommentDetailsResolver implements Resolve<IComment> {
 
-  constructor(private commentsService: CommentsService) {
+  constructor(private commentsService: CommentsService, private router: Router) {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IComment> | Promise<IComment> | IComment {
+    const comment = this.router.getCurrentNavigation()?.extras?.state?.['comment'] as IComment;
+
+    if (comment) {
+      return comment;
+    }
+
     const id = route.paramMap.get('id')
     return this.commentsService.getCommentById(id);
   }
