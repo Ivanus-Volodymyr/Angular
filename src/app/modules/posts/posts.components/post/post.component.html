@@ -1,5 +1,5 @@
 <div class="post">
   <h3>Id : {{post.id}}</h3>
   <h6>Post Title : {{post.title}}</h6>
-  <a [routerLink]="['details', post.id]" [state]="{data: post}">Post details</a>
+  <a [routerLink]="['details', post.id]" [state]="{post: post}">Post details</a>
 </div>
