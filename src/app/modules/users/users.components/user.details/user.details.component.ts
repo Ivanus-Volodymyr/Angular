@@ -11,19 +11,15 @@ import {IUser} from "../../users.models";
 })
 export class UserDetailsComponent implements OnInit {
 
-  userDetails:IUser;
+  userDetails: IUser;
   userId: string;
 
   constructor(private userService: UsersService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    if (history.state.data) {
-      this.activatedRoute.params.subscribe(value => this.userDetails = history.state.data);
-      this.activatedRoute.params.subscribe(value => this.userId = value['id']);
-    }
-    this.activatedRoute.params.subscribe(value => this.userId = value['id']);
-    this.userService.getUserById(this.userId).subscribe(value => this.userDetails = value)
+    console.log(history.state.data);
+    this.activatedRoute.data.subscribe(({userDetailData}) => this.userDetails = userDetailData);
   }
 
 }
