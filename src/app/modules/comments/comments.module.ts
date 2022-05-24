@@ -7,6 +7,7 @@ import {CommentsComponent} from './comments.components/comments/comments.compone
 import {CommentComponent} from './comments.components/comment/comment.component';
 import {CommentDetailsComponent} from './comments.components/comment.details/comment.details.component';
 import {CommentsService, CommentsResolver ,CommentDetailsResolver} from "./comments.service";
+import {CommentsGuard} from "./guards";
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import {CommentsService, CommentsResolver ,CommentDetailsResolver} from "./comme
     CommentsRoutingModule,
     HttpClientModule,
   ],
-  providers: [CommentsService, CommentsResolver, CommentDetailsResolver]
+  providers: [CommentsService, CommentsResolver, CommentDetailsResolver, CommentsGuard]
 })
 export class CommentsModule {
 }
