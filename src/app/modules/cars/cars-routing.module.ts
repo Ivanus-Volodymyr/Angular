@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import {CarsComponent} from "./cars.components/cars/cars.component";
-import {CarsService} from "./cars.services/cars.service";
+import {MainInterceptor} from "../../main.interceptor";
 
 const routes: Routes = [
   {path: '', component: CarsComponent},
@@ -11,7 +11,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [CarsService],
+  providers: [MainInterceptor],
 })
 export class CarsRoutingModule {
 }
