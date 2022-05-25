@@ -5,9 +5,8 @@ import {HomeComponent} from "./components/home/home.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'users', loadChildren: () => import('./modules/users/users.module').then(value => value.UsersModule)},
-  {path: 'posts', loadChildren: () => import('./modules/posts/posts.module').then(value => value.PostsModule)},
-  {path: 'comments', loadChildren: () => import('./modules/comments/comments.module').then(value => value.CommentsModule)},
+  {path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(value => value.AuthModule)},
+  {path: 'cars', loadChildren: () => import('./modules/cars/cars.module').then(value => value.CarsModule)},
 ];
 
 @NgModule({
