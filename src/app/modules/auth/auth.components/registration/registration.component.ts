@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {AuthService} from "../../auth.services";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-registration',
@@ -10,8 +11,9 @@ import {AuthService} from "../../auth.services";
 export class RegistrationComponent implements OnInit {
 
   form: FormGroup;
+  userNameError: string;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -20,16 +22,19 @@ export class RegistrationComponent implements OnInit {
 
   _createForm() {
     this.form = new FormGroup({
-      username: new FormControl(null, [Validators.minLength(4), Validators.maxLength(15), Validators.required]),
-      password: new FormControl(null, [Validators.minLength(4), Validators.maxLength(15), Validators.required]),
-      confirmPassword: new FormControl(null, [Validators.minLength(5), Validators.maxLength(20), Validators.required]),
+      username: new FormControl(null, [Validators.minLength(2), Validators.maxLength(15), Validators.required]),
+      password: new FormControl(null, [Validators.minLength(2), Validators.maxLength(15), Validators.required]),
+      confirmPassword: new FormControl(null, [Validators.minLength(2), Validators.maxLength(20), Validators.required]),
     }, [this._checkPasswords]);
   }
 
   register(): void {
     const formData = this.form.getRawValue();
     delete formData.confirmPassword;
-    this.authService.registration(formData).subscribe(value => console.log(value))
+    this.authService.registration(formData).subscribe(
+      () => this.router.navigate(['auth/login']),
+      e => this.userNameError = e.error.username[0],
+    );
   }
 
   _checkPasswords(form: AbstractControl): ValidationErrors | null {

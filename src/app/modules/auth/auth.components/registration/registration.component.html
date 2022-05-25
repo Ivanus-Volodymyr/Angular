@@ -4,6 +4,9 @@
       <div>Username:</div>
       <label><input type="text" formControlName="username"></label>
     </div>
+    <div *ngIf="userNameError">
+      {{userNameError}}
+    </div>
     <div>
       <div>Password:</div>
       <label><input type="text" formControlName="password"></label>
