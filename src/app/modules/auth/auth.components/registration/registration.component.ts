@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+import {AuthService} from "../../auth.services";
 
 @Component({
   selector: 'app-registration',
@@ -10,7 +11,7 @@ export class RegistrationComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -19,13 +20,21 @@ export class RegistrationComponent implements OnInit {
 
   _createForm() {
     this.form = new FormGroup({
-      username: new FormControl(null),
-      password: new FormControl(null),
-      confirmPassword: new FormControl(null),
-    })
+      username: new FormControl(null, [Validators.minLength(4), Validators.maxLength(15), Validators.required]),
+      password: new FormControl(null, [Validators.minLength(4), Validators.maxLength(15), Validators.required]),
+      confirmPassword: new FormControl(null, [Validators.minLength(5), Validators.maxLength(20), Validators.required]),
+    }, [this._checkPasswords]);
   }
 
   register(): void {
-    console.log(this.form);
+    const formData = this.form.getRawValue();
+    delete formData.confirmPassword;
+    this.authService.registration(formData).subscribe(value => console.log(value))
+  }
+
+  _checkPasswords(form: AbstractControl): ValidationErrors | null {
+    const password = form.get('password');
+    const confirmPassword = form.get('confirmPassword');
+    return password.value === confirmPassword.value ? null : {notSame: 'Password not confirm'};
   }
 }

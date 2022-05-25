@@ -2,8 +2,8 @@ import {environment} from '../../environments/environment'
 
 const {API} = environment;
 
-export const urls= {
+export const urls = {
+  auth: `${API}/auth`,
+  users: `${API}/users`,
   cars: `${API}/cars`,
-  posts: `${API}/posts`,
-  comments: `${API}/comments`,
 }
