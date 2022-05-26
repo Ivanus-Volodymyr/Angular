@@ -20,7 +20,7 @@ export class RegistrationComponent implements OnInit {
     this._createForm()
   }
 
-  _createForm() {
+  _createForm(): void {
     this.form = new FormGroup({
       username: new FormControl(null, [Validators.minLength(2), Validators.maxLength(15), Validators.required]),
       password: new FormControl(null, [Validators.minLength(2), Validators.maxLength(15), Validators.required]),
@@ -31,9 +31,11 @@ export class RegistrationComponent implements OnInit {
   register(): void {
     const formData = this.form.getRawValue();
     delete formData.confirmPassword;
-    this.authService.registration(formData).subscribe(
-      () => this.router.navigate(['auth/login']),
-      e => this.userNameError = e.error.username[0],
+    this.authService.registration(formData).subscribe({
+        next: () =>
+          this.router.navigate(['auth/login']),
+        error: e => this.userNameError = e.error.username[0],
+      }
     );
   }
 
