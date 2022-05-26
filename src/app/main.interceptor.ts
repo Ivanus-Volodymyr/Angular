@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpInterceptor, HttpErrorResponse
 } from '@angular/common/http';
-import {catchError, Observable} from 'rxjs';
+import {catchError, Observable, throwError} from 'rxjs';
 import {Router} from "@angular/router";
 
 import {AuthService} from "./modules/auth/auth.services";
@@ -25,13 +25,13 @@ export class MainInterceptor implements HttpInterceptor {
       request = this.addToken(request, token)
     }
     return next.handle(request).pipe(
-      // @ts-ignore
       catchError((response: HttpErrorResponse) => {
         if (response && response.error && response.status === 401) {
           this.authService.deleteToken();
           this.router.navigate(['login'])
         }
-      }, )
+        return throwError(() => new Error('token not valid'))
+      })
     );
   }
 
