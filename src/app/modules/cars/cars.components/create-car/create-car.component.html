@@ -1,0 +1,18 @@
+<div class="create-car">
+  <form [formGroup]="form">
+    <div>
+      <div>Model :</div>
+      <label><input type="text" formControlName="model"></label>
+    </div>
+
+    <div>
+      <div>Year :</div>
+      <label><input type="text" formControlName="year"></label>
+    </div>
+    <div>
+      <div>Price :</div>
+      <label><input type="text" formControlName="price"></label>
+    </div>
+    <button [disabled]="form.invalid" (click)="create()">Create Car</button>
+  </form>
+</div>

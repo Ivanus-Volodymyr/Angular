@@ -1,0 +1,22 @@
+.create-car {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.create-car > form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 50px;
+  row-gap: 10px;
+  width: 600px;
+  height: 250px;
+}
+
+input {
+  width: 200px;
+}

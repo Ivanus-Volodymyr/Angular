@@ -1,1 +1,8 @@
-<p>car works!</p>
+<div class="car">
+  <div>{{car.id}}</div>
+  <div>{{car.model}}</div>
+  <div>{{car.year}}</div>
+  <div>{{car.price}} $</div>
+  <button (click)="deleteCar(car.id)">Delete Car</button>
+  <button [routerLink]="[car.id, 'update']" [state]="{data: car, id:car.id}">Update Car</button>
+</div>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+
+import {ICar} from "../../cars.models";
+import {CarsService} from "../../cars.services";
 
 @Component({
   selector: 'app-car',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private carsService: CarsService) {
+  }
+
+  @Input()
+  car: ICar
+  carForUpdate: ICar;
 
   ngOnInit(): void {
   }
 
+  deleteCar(id: number): void {
+    this.carsService.deleteById(id).subscribe(() => {
+      window.location.reload();
+    });
+  }
+
+
+  update(car: ICar) {
+    this.carForUpdate = car;
+  }
 }

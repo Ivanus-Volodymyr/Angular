@@ -1,1 +1,6 @@
-<p>cars works!</p>
+<div class="cars-block">
+  <h1>All cars</h1>
+  <app-car *ngFor="let car of cars" [car]='car'></app-car>
+  <router-outlet></router-outlet>
+</div>
+
