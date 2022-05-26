@@ -13,7 +13,7 @@ const routes: Routes = [
       {
         path: 'all', component: CarsComponent,
         children: [
-          {path: ':id/update', component: UpdateCarComponent}
+          {path: 'update', component: UpdateCarComponent}
         ]
       },
       {path: 'create', component: CreateCarComponent}
