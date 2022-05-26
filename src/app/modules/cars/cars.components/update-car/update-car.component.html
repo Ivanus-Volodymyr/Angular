@@ -1,1 +1,18 @@
-<p>update-car works!</p>
+<div class="create-car">
+  <form [formGroup]="updateForm">
+    <div>
+      <div>Model :</div>
+      <label><input type="text" formControlName="model"></label>
+    </div>
+
+    <div>
+      <div>Year :</div>
+      <label><input type="text" formControlName="year"></label>
+    </div>
+    <div>
+      <div>Price :</div>
+      <label><input type="text" formControlName="price"></label>
+    </div>
+    <button [disabled]="updateForm.invalid" (click)="update()">Update Car</button>
+  </form>
+</div>

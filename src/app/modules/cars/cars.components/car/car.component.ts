@@ -15,7 +15,6 @@ export class CarComponent implements OnInit {
 
   @Input()
   car: ICar
-  carForUpdate: ICar;
 
   ngOnInit(): void {
   }
@@ -26,8 +25,4 @@ export class CarComponent implements OnInit {
     });
   }
 
-
-  update(car: ICar) {
-    this.carForUpdate = car;
-  }
 }

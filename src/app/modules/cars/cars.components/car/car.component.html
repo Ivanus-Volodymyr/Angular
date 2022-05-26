@@ -4,5 +4,7 @@
   <div>{{car.year}}</div>
   <div>{{car.price}} $</div>
   <button (click)="deleteCar(car.id)">Delete Car</button>
-  <button [routerLink]="['update', car.id]" [state]=["{id:car.id}"]>Update Car</button>
+  <a [routerLink]="['update', car.id]" [state]="{car:car}">
+    <button>Update Car</button>
+  </a>
 </div>
