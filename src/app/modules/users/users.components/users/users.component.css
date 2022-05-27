@@ -1,7 +1,8 @@
-.users-block{
+.users-block {
   display: flex;
   flex-direction: row;
 }
-.all-users{
+
+.all-users {
   width: 48%;
 }
