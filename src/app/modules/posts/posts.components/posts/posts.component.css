@@ -1,8 +1,9 @@
-.posts-block{
+.posts-block {
   display: flex;
   flex-direction: row;
 }
-.posts{
+
+.posts {
   display: flex;
   flex-direction: column;
   width: 47%;

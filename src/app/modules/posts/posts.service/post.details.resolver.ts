@@ -1,9 +1,5 @@
 import {Injectable} from '@angular/core';
-import {
-  Resolve,
-  RouterStateSnapshot,
-  ActivatedRouteSnapshot, Router
-} from '@angular/router';
+import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
 
 import {IPost} from "../posts.models";
