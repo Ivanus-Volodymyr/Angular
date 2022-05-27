@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
 
 import {ICar} from "../../cars.models";
-import {CarsService} from "../../cars.services";
-import {ActivatedRoute} from "@angular/router";
+import {CarsService, DataService} from "../../cars.services";
+
 
 @Component({
   selector: 'app-update-car',
@@ -12,11 +13,17 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class UpdateCarComponent implements OnInit {
 
+  cars: ICar[];
   car: ICar;
   id: number;
   updateForm: FormGroup;
 
-  constructor(private carsService: CarsService, private activatedRoute: ActivatedRoute) {
+  constructor(
+    private carsService: CarsService,
+    private activatedRoute: ActivatedRoute,
+    private dataService: DataService,
+    private router: Router,
+  ) {
     this._createUpdateForm();
   }
 
@@ -35,9 +42,16 @@ export class UpdateCarComponent implements OnInit {
   }
 
   update(): void {
-    const updateCarComponent = this.updateForm.getRawValue();
-    this.carsService.updateCar(this.id, updateCarComponent).subscribe(() => {
-      window.location.reload();
+    const newCarValue = this.updateForm.getRawValue();
+
+    this.carsService.updateCar(this.id, newCarValue).subscribe(() => {
+      this.dataService.storage.subscribe(cars => {
+        const index = cars.findIndex(car => car.id === newCarValue.id);
+        cars.splice(index, 1);
+        cars.push(newCarValue);
+        console.log(cars);
+        this.router.navigate(['cars/all'])
+      })
     });
   }
 }

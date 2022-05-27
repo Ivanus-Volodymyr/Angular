@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {CarsService} from "../../cars.services";
 import {Router} from "@angular/router";
+
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {CarsService, DataService} from "../../cars.services";
+
 
 @Component({
   selector: 'app-create-car',
@@ -12,7 +14,7 @@ export class CreateCarComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private carsService: CarsService, private router: Router) {
+  constructor(private carsService: CarsService, private router: Router, private dataService: DataService) {
     this._createForm()
   }
 
@@ -30,7 +32,11 @@ export class CreateCarComponent implements OnInit {
   create(): void {
     const formData = this.form.getRawValue();
     this.carsService.create(formData).subscribe(() => {
-      this.router.navigate(['cars/all'])
+      this.dataService.storage.subscribe(value => {
+        value.push(formData);
+        this.router.navigate(['cars/all'])
+      })
+
     })
   }
 }

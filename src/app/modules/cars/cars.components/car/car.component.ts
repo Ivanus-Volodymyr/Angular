@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 import {ICar} from "../../cars.models";
-import {CarsService} from "../../cars.services";
+import {CarsService, DataService} from "../../cars.services";
 
 @Component({
   selector: 'app-car',
@@ -10,19 +10,22 @@ import {CarsService} from "../../cars.services";
 })
 export class CarComponent implements OnInit {
 
-  constructor(private carsService: CarsService) {
+  constructor(private carsService: CarsService, private dataService: DataService) {
   }
 
   @Input()
   car: ICar
+  cars: ICar[];
 
   ngOnInit(): void {
   }
 
   deleteCar(id: number): void {
     this.carsService.deleteById(id).subscribe(() => {
-      window.location.reload();
+      this.dataService.storage.subscribe(value => {
+        const index = value.findIndex(car => car.id === id);
+        value.splice(index, 1)
+      });
     });
   }
-
 }

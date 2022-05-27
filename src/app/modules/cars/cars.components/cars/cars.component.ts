@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-import {CarsService} from "../../cars.services";
+import {CarsService, DataService} from "../../cars.services";
 import {ICar} from "../../cars.models";
 
 @Component({
@@ -12,11 +12,12 @@ export class CarsComponent implements OnInit {
 
   cars: ICar[];
 
-  constructor(private carsService: CarsService) {
+  constructor(private carsService: CarsService, private dataService: DataService) {
   }
 
   ngOnInit(): void {
-    this.carsService.getAll().subscribe(value => this.cars = value);
+    // this.carsService.getAll().subscribe(value => console.log(value));
+    this.dataService.storage.subscribe(value => this.cars = value)
   }
 
 }
