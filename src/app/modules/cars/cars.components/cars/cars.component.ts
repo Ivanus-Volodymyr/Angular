@@ -16,7 +16,6 @@ export class CarsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.carsService.getAll().subscribe(value => console.log(value));
     this.dataService.storage.subscribe(value => this.cars = value)
   }
 
