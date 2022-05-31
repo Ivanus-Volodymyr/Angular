@@ -1,8 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { MovieRoutingModule } from './movie-routing.module';
-import { MoviesComponent } from './components/movies/movies/movies.component';
+import {MovieRoutingModule} from './movie-routing.module';
+import {DataService} from "./services";
+import {MoviesComponent} from "./components/movies/movies.component";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -11,7 +13,12 @@ import { MoviesComponent } from './components/movies/movies/movies.component';
   ],
   imports: [
     CommonModule,
-    MovieRoutingModule
+    HttpClientModule,
+    MovieRoutingModule,
+  ],
+  providers: [
+    DataService,
   ]
 })
-export class MovieModule { }
+export class MovieModule {
+}
