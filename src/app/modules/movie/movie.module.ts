@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {MovieRoutingModule} from './movie-routing.module';
-import {DataService} from "./services";
+import {DataService, MovieService} from "./services";
 import {MoviesComponent} from "./components/movies/movies.component";
 import {HttpClientModule} from "@angular/common/http";
 
@@ -18,6 +18,7 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   providers: [
     DataService,
+    MovieService,
   ]
 })
 export class MovieModule {
