@@ -8,6 +8,7 @@ import {DataService, MovieService} from "./services";
 import {MoviesComponent} from "./components/movies/movies.component";
 import {PaginationComponent} from './components/pagination/pagination.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import {GenreModule} from "../genre/genre.module";
 
 
 @NgModule({
@@ -20,6 +21,10 @@ import {NgxPaginationModule} from "ngx-pagination";
     HttpClientModule,
     MovieRoutingModule,
     NgxPaginationModule,
+    GenreModule,
+  ],
+  exports: [
+    MoviesComponent
   ],
   providers: [
     DataService,

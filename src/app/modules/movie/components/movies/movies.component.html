@@ -1,8 +1,15 @@
-<div *ngFor="let m of movies">
-  <h2>{{m.original_title}}</h2>
+<div class="movies-main-block">
+  <div>
+    <app-genres></app-genres>
+  </div>
+  <div>
+    <div *ngFor="let m of movies">
+      <h2>{{m.original_title}}</h2>
+    </div>
+    <div *ngFor="let page of movies | paginate: {itemsPerPage: 20, currentPage: page, totalItems:total_page}">
+    </div>
+    <pagination-controls (pageChange)="change($event)"></pagination-controls>
+  </div>
 </div>
-<div *ngFor="let page of movies | paginate: {itemsPerPage: 20, currentPage: page, totalItems:total_page}">
-</div>
-<pagination-controls (pageChange)="change($event)"></pagination-controls>
 <!--<button (click)="next()">Next Page</button>-->
 

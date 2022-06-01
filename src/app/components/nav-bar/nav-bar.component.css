@@ -1,19 +1,27 @@
-.home-block{
+.nav-block {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100px;
-  background: #75b1e1;
-}
-.home-block ul{
-  width: 800px;
-  display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background: rgba(2, 16, 70, 0.49);
+  box-shadow: 0 20px 15px -6px rgba(1, 51, 90, 0.29);
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 20px;
 }
-.home-block ul li{
-  font-size: 20px;
-  font-weight: bold;
+.nav-user{
+  display: flex;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  background: url("image/user_no_photo_600x600.png") no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  image-orientation: unset;
+  position: absolute;
+  right: 25px;
 }
+
+
