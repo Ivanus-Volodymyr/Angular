@@ -1,4 +1,8 @@
 <div *ngFor="let m of movies">
   <h2>{{m.original_title}}</h2>
 </div>
-<button (click)="next()">Next Page</button>
+<div *ngFor="let page of movies | paginate: {itemsPerPage: 20, currentPage: page, totalItems:total_page}">
+</div>
+<pagination-controls (pageChange)="change($event)"></pagination-controls>
+<!--<button (click)="next()">Next Page</button>-->
+

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DataService} from "../../services";
+import {DataService, MovieService} from "../../services";
 import {IResults} from "../../models";
 
 @Component({
@@ -11,14 +11,24 @@ export class MoviesComponent implements OnInit {
 
   movies: IResults[];
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private movieService: MovieService) {
   }
+
+  page: number;
+  total_page: number
 
   ngOnInit(): void {
-    this.dataService.storage.subscribe(value => console.log(value))
+    this.dataService.storage.subscribe(value => {
+      this.movies = value.results
+      this.total_page = value.total_pages;
+    });
   }
 
-  next(): void {
-    this.dataService.setPage()
+  change(event: number) {
+    console.log(event);
+    this.page = event;
+    this.movieService.getMovies(this.page, '').subscribe(value => {
+      this.dataService.storage.next(value);
+    })
   }
 }
