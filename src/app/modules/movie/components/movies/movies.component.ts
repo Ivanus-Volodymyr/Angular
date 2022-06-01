@@ -14,20 +14,22 @@ export class MoviesComponent implements OnInit {
   constructor(private dataService: DataService, private movieService: MovieService) {
   }
 
-  page: number;
+  page:number;
   total_page: number
 
   ngOnInit(): void {
     this.dataService.storage.subscribe(value => {
       this.movies = value.results
       this.total_page = value.total_pages;
+      this.page = this.dataService.page;
     });
   }
 
   change(event: number) {
-    console.log(event);
     this.page = event;
-    this.movieService.getMovies(this.page, '').subscribe(value => {
+    this.dataService.page = event;
+    this.page = 1;
+    this.movieService.getMovies(event, this.dataService.genre).subscribe(value => {
       this.dataService.storage.next(value);
     })
   }

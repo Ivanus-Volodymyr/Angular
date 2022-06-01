@@ -10,15 +10,15 @@ import {IMovie} from "../models";
 export class DataService {
 
   storage = new BehaviorSubject<IMovie>({page: null, results: [], total_pages: null,});
-  genres = [];
-  genre = this.genres.toString()
 
+  genre = '';
+  page =1;
 
   constructor(private movieService: MovieService) {
     this._setStorage();
   }
 
   _setStorage(): void {
-    this.movieService.getMovies(this.storage.value.page, this.genre).subscribe(value => this.storage.next(value))
+    this.movieService.getMovies(this.page, this.genre).subscribe(value => this.storage.next(value))
   }
 }
