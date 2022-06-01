@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {MovieService} from "./movie.service";
 import {IMovie} from "../models";
 
@@ -9,7 +9,8 @@ import {IMovie} from "../models";
 
 export class DataService {
 
-  storage = new BehaviorSubject<IMovie>({page: null, results: [], total_pages: null,});
+  storage = new BehaviorSubject<IMovie>({page: 1, results: [], total_pages: null,});
+  page = null;
   genres = [];
   genre = this.genres.toString()
 
@@ -18,7 +19,12 @@ export class DataService {
     this._setStorage();
   }
 
-  _setStorage(): void {
-    this.movieService.getMovies(this.storage.value.page, this.genre).subscribe(value => this.storage.next(value))
+  setPage(): void {
+    this.page += 1;
+  }
+
+  _setStorage(): Observable<IMovie> {
+    this.movieService.getMovies(this.page, this.genre).subscribe(value => this.storage.next(value))
+    return this.storage;
   }
 }

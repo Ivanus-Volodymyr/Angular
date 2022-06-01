@@ -19,6 +19,6 @@ export class MoviesComponent implements OnInit {
   }
 
   next(): void {
-    this.dataService.storage.next({page: +1});
+    this.dataService.setPage()
   }
 }
