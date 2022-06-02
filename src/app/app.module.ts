@@ -6,7 +6,6 @@ import {HomeComponent} from './components/home/home.component';
 import {AppRoutingModule} from "./app.routing.module";
 import {NavBarComponent} from "./components/nav-bar/nav-bar.component";
 
-
 @NgModule({
   declarations: [
     AppComponent,
