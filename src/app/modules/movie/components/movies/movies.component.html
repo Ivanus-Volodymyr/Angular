@@ -1,15 +1,21 @@
 <div class="movies-main-block">
-  <div>
+  <div class="main-genres-block">
     <app-genres></app-genres>
   </div>
-  <div>
-    <div *ngFor="let m of movies">
-      <h2>{{m.original_title}}</h2>
+  <div class="main-movies-block">
+    <app-carousel style="width: 100%"></app-carousel>
+
+    <div class="main-movies">
+      <div class="movies">
+        <app-movie *ngFor="let movie of movies" [movie]="movie"></app-movie>
+      </div>
+
+      <div class="main-pagination-block">
+        <div *ngFor="let page of movies | paginate: {itemsPerPage: 20, currentPage: page, totalItems:total_page}"></div>
+        <pagination-controls (pageChange)="change($event)"></pagination-controls>
+      </div>
+
     </div>
-    <div *ngFor="let page of movies | paginate: {itemsPerPage: 20, currentPage: page, totalItems:total_page}">
-    </div>
-    <pagination-controls (pageChange)="change($event)"></pagination-controls>
   </div>
 </div>
-<!--<button (click)="next()">Next Page</button>-->
 

@@ -1,11 +1,10 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-
-import {HomeComponent} from "./components/home/home.component";
+import {CommonModule} from "@angular/common";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: '', loadChildren: () => import('./modules/movie/movie.module').then(value => value.MovieModule)},
+  {path: '', redirectTo: 'movies', pathMatch: 'full'},
+  {path: 'movies', loadChildren: () => import('./modules/movie/movie.module').then(value => value.MovieModule)},
   {path: 'user', loadChildren: () => import('./modules/user/user.module').then(value => value.UserModule)}
   // {path: 'posts', loadChildren: () => import('./modules/posts/posts.module').then(value => value.PostsModule)},
   // {path: 'comments', loadChildren: () => import('./modules/comments/comments.module').then(value => value.CommentsModule)},
@@ -13,6 +12,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    CommonModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]

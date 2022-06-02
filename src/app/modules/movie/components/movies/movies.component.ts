@@ -14,7 +14,7 @@ export class MoviesComponent implements OnInit {
   constructor(private dataService: DataService, private movieService: MovieService) {
   }
 
-  page:number;
+  page: number;
   total_page: number
 
   ngOnInit(): void {

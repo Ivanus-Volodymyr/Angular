@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 import {urls} from "../../../constants";
-import {IMovie} from "../models";
+import {IMovie, IMovieDetails} from "../models";
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +15,9 @@ export class MovieService {
 
   getMovies(page: number, genre: string): Observable<IMovie> {
     return this.httpClient.get<IMovie>(urls.movies + page + '&with_genres=' + genre)
+  }
+
+  getMovieById(id: string): Observable<IMovieDetails> {
+    return this.httpClient.get<IMovieDetails>(urls.movieById + `${id}?api_key=865a7502a1780159827b764af0bee919`)
   }
 }
