@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: ':id', component: MovieDetailsComponent,
-    resolve: {data: MovieResolver},
+    resolve: {movieDetails: MovieResolver},
   }
 ];
 
