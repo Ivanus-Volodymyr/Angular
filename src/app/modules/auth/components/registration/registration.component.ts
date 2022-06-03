@@ -17,7 +17,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._createForm()
+    this._createForm();
   }
 
   _createForm(): void {
