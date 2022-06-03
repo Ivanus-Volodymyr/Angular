@@ -20,7 +20,7 @@ export class MoviesComponent implements OnInit {
   total_page: number;
 
   form: FormGroup;
-  name: string;
+  name = '';
 
   ngOnInit(): void {
     this.dataService.storage.subscribe(value => {
@@ -30,14 +30,6 @@ export class MoviesComponent implements OnInit {
     });
   }
 
-  change(event: number) {
-    this.page = event;
-    this.dataService.page = event;
-    this.page = 1;
-    this.movieService.getMovies(event, this.dataService.genre).subscribe(value => {
-      this.dataService.storage.next(value);
-    })
-  }
 
   _createForm(): void {
     this.form = new FormGroup({
@@ -46,7 +38,25 @@ export class MoviesComponent implements OnInit {
   }
 
   search(): void {
-    const value = this.form.getRawValue();
-    console.log(value);
+    const {name} = this.form.getRawValue();
+    this.name = name;
+    this.movieService.getMovieByNae(name, this.page).subscribe(value => {
+      this.dataService.storage.next(value);
+    })
+  }
+
+  change(event: number) {
+    this.page = event;
+    this.dataService.page = event;
+    this.page = 1;
+
+    if (this.name === '') {
+      this.movieService.getMovies(event, this.dataService.genre).subscribe(value => {
+        this.dataService.storage.next(value);
+      })
+    }
+    this.movieService.getMovieByNae(this.name, event).subscribe(value => {
+      this.dataService.storage.next(value);
+    })
   }
 }
