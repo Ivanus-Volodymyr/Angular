@@ -15,7 +15,7 @@ import {MovieDetailsComponent} from './components/movie-details/movie-details.co
 import {MovieResolver} from "./components/movie-details/resolver";
 
 import {RatingConfig, RatingModule} from "ngx-bootstrap/rating";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -34,6 +34,7 @@ import {FormsModule} from "@angular/forms";
     TestCarouselModule,
     RatingModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     MoviesComponent
