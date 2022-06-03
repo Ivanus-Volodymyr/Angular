@@ -1,4 +1,4 @@
-.home-block{
+.home-block {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,14 +6,16 @@
   height: 100px;
   background: #75b1e1;
 }
-.home-block ul{
+
+.home-block ul {
   width: 800px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-.home-block ul li{
+
+.home-block ul li {
   font-size: 20px;
   font-weight: bold;
 }
