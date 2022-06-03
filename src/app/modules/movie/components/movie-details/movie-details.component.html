@@ -1,1 +1,52 @@
-<p>movie-details works!</p>
+<div class='Overview'>
+  <div class='MovieDetailMain'>
+    <div class='Title'>
+      <div><h2>{{movie.title}}</h2>
+        <h4>Release Date -- release_date</h4>
+        <h5>Status : {{movie.status}}</h5>
+        <hr/>
+      </div>
+      <img src="{{img}}{{movie.poster_path}}" alt="title"/>
+      <h2>TMDB : {{movie.vote_average}}</h2>
+    </div>
+    <div class='Info'>
+      <div class='OfficialTitle'><h2>Official Title: {{movie.original_title}}</h2></div>
+      <div class='InfoDetail'>
+        <div>Tagline : {{movie.tagline}} </div>
+        <hr/>
+        <div>Release date : {{movie.release_date}} ;</div>
+        <div>Budget : {{movie.budget}} $ ;</div>
+        <div>Revenue : {{movie.revenue}} $ ;</div>
+        <div>Home page : <a href="{{movie.homepage}}">{{movie.homepage}}</a> ;</div>
+        <div>Run time : {{movie.runtime}} m ;</div>
+        <div>Original language : {{movie.original_language}} ;</div>
+        <div>Spoken Languages :
+          <ul *ngFor="let spoken of movie.spoken_languages">
+            <li>{{spoken.english_name}}</li>
+            <li>{{spoken.name}}</li>
+            <li>{{spoken.iso_639_1}}</li>
+          </ul>
+        </div>
+        <div>Genres :
+          <ul *ngFor="let genre of movie.genres">
+            <li>{{genre.name}}</li>
+          </ul>
+        </div>
+        <div>Production companies :
+          <ul *ngFor="let companies of movie.production_companies">
+            <li>{{companies.name}}</li>
+          </ul>
+        </div>
+        <div>Production countries :
+          <ol *ngFor="let value of movie.production_countries">
+            <li>{{value.name}}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='AllInfo'>
+    <h3>Overview : </h3>
+    <p>{{movie.overview}}</p>
+  </div>
+</div>

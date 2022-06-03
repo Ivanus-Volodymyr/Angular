@@ -12,7 +12,6 @@ import {GenreModule} from "../genre/genre.module";
 import {TestCarouselModule} from "../carusel/carousel.module";
 import {MovieComponent} from './components/movie/movie.component';
 import {MovieDetailsComponent} from './components/movie-details/movie-details.component';
-import {BrowserModule} from "@angular/platform-browser";
 import {MovieResolver} from "./components/movie-details/resolver";
 
 
