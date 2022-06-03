@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService, MovieService} from "../../services";
 import {IResults} from "../../models";
-import {FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-movies',
@@ -13,6 +13,7 @@ export class MoviesComponent implements OnInit {
   movies: IResults[];
 
   constructor(private dataService: DataService, private movieService: MovieService) {
+    this._createForm();
   }
 
   page: number;
@@ -36,5 +37,11 @@ export class MoviesComponent implements OnInit {
     this.movieService.getMovies(event, this.dataService.genre).subscribe(value => {
       this.dataService.storage.next(value);
     })
+  }
+
+  _createForm() {
+    this.form = new FormGroup({
+      name: new FormControl(null, [Validators.minLength(1), Validators.maxLength(20), Validators.required]),
+    });
   }
 }
