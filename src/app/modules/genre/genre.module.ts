@@ -1,11 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {HttpClientModule} from "@angular/common/http";
+
 
 import {GenreRoutingModule} from './genre-routing.module';
 import {GenresComponent} from './components/genres/genres.component';
 import {GenreComponent} from './components/genre/genre.component';
 import {DataService, GenreService} from "./services";
-import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({

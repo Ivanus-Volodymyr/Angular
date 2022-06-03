@@ -14,7 +14,7 @@ import {CarouselModule} from "ngx-bootstrap/carousel";
   ],
   providers: [],
   exports: [
-    CarouselComponent
+    CarouselComponent,
   ],
   bootstrap: [CarouselComponent]
 })

@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+
 import {DataService, MovieService} from "../../services";
 import {IResults} from "../../models";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-movies',

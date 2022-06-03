@@ -15,6 +15,7 @@ export class CarouselComponent implements OnInit {
   itemsPerSlide: number;
 
   constructor(private movieDataService: DataService) {
+    this.itemsPerSlide = this.mobileDevice() ? 2 : 4;
   }
 
   ngOnInit(): void {
@@ -22,7 +23,6 @@ export class CarouselComponent implements OnInit {
       this.movies = value
     });
     this.img = urls.img;
-    this.itemsPerSlide = this.mobileDevice() ? 2 : 4;
   }
 
   mobileDevice(): boolean {

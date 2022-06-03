@@ -1,19 +1,22 @@
-*{
+* {
   padding: 0;
   box-sizing: border-box;
 }
-body{
+
+body {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.app{
+
+.app {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.theme{
+
+.theme {
   background-color: #cad1d7;
   transition: 2s;
 }
