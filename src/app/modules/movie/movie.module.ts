@@ -14,6 +14,9 @@ import {MovieComponent} from './components/movie/movie.component';
 import {MovieDetailsComponent} from './components/movie-details/movie-details.component';
 import {MovieResolver} from "./components/movie-details/resolver";
 
+import {RatingConfig, RatingModule} from "ngx-bootstrap/rating";
+import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -29,6 +32,8 @@ import {MovieResolver} from "./components/movie-details/resolver";
     NgxPaginationModule,
     GenreModule,
     TestCarouselModule,
+    RatingModule,
+    FormsModule,
   ],
   exports: [
     MoviesComponent
@@ -37,7 +42,8 @@ import {MovieResolver} from "./components/movie-details/resolver";
     DataService,
     MovieService,
     MovieResolver,
-  ]
+    RatingConfig,
+  ],
 })
 export class MovieModule {
 }

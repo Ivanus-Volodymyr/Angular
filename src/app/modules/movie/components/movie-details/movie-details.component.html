@@ -6,8 +6,14 @@
         <h5>Status : {{movie.status}}</h5>
         <hr/>
       </div>
-      <img src="{{img}}{{movie.poster_path}}" alt="title"/>
+      <img alt="title" src="{{img}}{{movie.poster_path}}"/>
       <h2>TMDB : {{movie.vote_average}}</h2>
+      <div>
+        <rating [(ngModel)]="value"
+                [max]="max"
+                [readonly]="false">
+        </rating>
+      </div>
     </div>
     <div class='Info'>
       <div class='OfficialTitle'><h2>Official Title: {{movie.original_title}}</h2></div>

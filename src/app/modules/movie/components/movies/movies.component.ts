@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService, MovieService} from "../../services";
 import {IResults} from "../../models";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-movies',
@@ -15,7 +16,10 @@ export class MoviesComponent implements OnInit {
   }
 
   page: number;
-  total_page: number
+  total_page: number;
+
+  form: FormGroup;
+  name: string;
 
   ngOnInit(): void {
     this.dataService.storage.subscribe(value => {

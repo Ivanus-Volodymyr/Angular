@@ -13,6 +13,8 @@ export class MovieDetailsComponent implements OnInit {
 
   movie: IMovieDetails;
   img: string
+  max: number = 10;
+  value: number = 5;
 
   constructor(private routes: ActivatedRoute) {
   }
