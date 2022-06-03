@@ -1,1 +1,26 @@
-<p>registration works!</p>
+<div class="form-block">
+  <form [formGroup]="form">
+    <div>
+      <div>Username:</div>
+      <label><input type="text" formControlName="username"></label>
+    </div>
+    <div *ngIf="userNameError">
+      {{userNameError}}
+    </div>
+    <div>
+      <div>Password:</div>
+      <label><input type="text" formControlName="password"></label>
+    </div>
+    <div>
+      <div>
+        Confirm Password:
+      </div>
+      <label><input type="text" formControlName="confirmPassword"></label>
+    </div>
+    <div *ngIf="form.errors">
+      <span>{{form.errors['notSame']}}</span>
+      <hr>
+    </div>
+    <button [disabled]="form.invalid" (click)="register()">Register</button>
+  </form>
+</div>
