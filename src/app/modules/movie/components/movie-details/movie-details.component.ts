@@ -20,7 +20,6 @@ export class MovieDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.routes.data.subscribe(({movieDetails}) => this.movie = movieDetails);
     this.img = urls.img
-    console.log(this.movie);
   }
 
 }
