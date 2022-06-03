@@ -5,9 +5,7 @@ import {CommonModule} from "@angular/common";
 const routes: Routes = [
   {path: '', redirectTo: 'movies', pathMatch: 'full'},
   {path: 'movies', loadChildren: () => import('./modules/movie/movie.module').then(value => value.MovieModule)},
-  {path: 'user', loadChildren: () => import('./modules/user/user.module').then(value => value.UserModule)}
-  // {path: 'posts', loadChildren: () => import('./modules/posts/posts.module').then(value => value.PostsModule)},
-  // {path: 'comments', loadChildren: () => import('./modules/comments/comments.module').then(value => value.CommentsModule)},
+  {path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(value => value.AuthModule)},
 ];
 
 @NgModule({
