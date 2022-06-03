@@ -9,7 +9,7 @@
       <div class="movies">
 
         <div>
-          <form [formGroup]="form">
+          <form [formGroup]="form" (submit)="search()">
             <input type="text" formControl="name"/>
           </form>
         </div>

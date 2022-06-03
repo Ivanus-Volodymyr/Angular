@@ -39,9 +39,14 @@ export class MoviesComponent implements OnInit {
     })
   }
 
-  _createForm() {
+  _createForm(): void {
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.minLength(1), Validators.maxLength(20), Validators.required]),
     });
+  }
+
+  search(): void {
+    const value = this.form.getRawValue();
+    console.log(value);
   }
 }
