@@ -16,6 +16,7 @@ import {MovieResolver} from "./components/movie-details/resolver";
 
 import {RatingConfig, RatingModule} from "ngx-bootstrap/rating";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     PaginationComponent,
     MovieComponent,
     MovieDetailsComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,

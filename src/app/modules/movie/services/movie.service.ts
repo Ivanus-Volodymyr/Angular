@@ -21,7 +21,11 @@ export class MovieService {
     return this.httpClient.get<IMovieDetails>(urls.movieById + `${id}?api_key=865a7502a1780159827b764af0bee919`);
   }
 
-  getMovieByNae(name: string, page: number): Observable<IMovie> {
+  getMovieByName(name: string, page: number): Observable<IMovie> {
     return this.httpClient.get<IMovie>(urls.movieByName + name + '&page=' + page);
+  }
+
+  getMovieByVote(): Observable<IMovie> {
+    return this.httpClient.get<IMovie>(urls.movies + '&sort_by=vote_count.desc');
   }
 }

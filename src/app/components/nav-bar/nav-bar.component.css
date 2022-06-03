@@ -11,7 +11,8 @@
   border-radius: 10px;
   padding: 20px;
 }
-.nav-user{
+
+.nav-user {
   display: flex;
   align-items: center;
   width: 38px;
@@ -23,8 +24,41 @@
   position: absolute;
   right: 25px;
 }
-.home-link{
+
+.home-link {
   position: absolute;
   left: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.theme {
+  position: absolute;
+  right: 25px;
+  top: 125px;
+}
+
+button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #b0bbd0;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.1) 0 8px 24px, rgba(17, 17, 26, 0.1) 0 16px 56px;
+}
+
+a {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0d102b;
+  text-decoration: none;
+  margin-right: 20px;
+}
+a:hover{
+  font-size: 17px;
+  text-shadow: rgba(198, 198, 232, 0.1) 0 4px 16px, rgba(188, 188, 243, 0.1) 0 8px 24px, rgba(186, 186, 239, 0.1) 0 16px 56px;;
 }
 

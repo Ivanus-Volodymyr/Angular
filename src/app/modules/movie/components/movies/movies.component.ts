@@ -40,7 +40,7 @@ export class MoviesComponent implements OnInit {
   search(): void {
     const {name} = this.form.getRawValue();
     this.name = name;
-    this.movieService.getMovieByNae(name, this.page).subscribe(value => {
+    this.movieService.getMovieByName(name, this.page).subscribe(value => {
       this.dataService.storage.next(value);
     })
   }
@@ -55,7 +55,7 @@ export class MoviesComponent implements OnInit {
         this.dataService.storage.next(value);
       })
     }
-    this.movieService.getMovieByNae(this.name, event).subscribe(value => {
+    this.movieService.getMovieByName(this.name, event).subscribe(value => {
       this.dataService.storage.next(value);
     })
   }

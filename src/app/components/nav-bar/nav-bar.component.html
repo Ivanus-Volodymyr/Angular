@@ -1,8 +1,12 @@
 <div class="nav-block">
-  <div class = "home-link"><a [routerLink]="['movies']">Home</a></div>
+  <div class="home-link">
+    <a [routerLink]="['movies']">Home</a>
+    <a [routerLink]="['contact']">Contact</a>
+    <a [routerLink]="['info']">Info</a>
+  </div>
   <div>
     <h5>TMDB Films</h5>
   </div>
-  <a [routerLink]="['user']" class="nav-user">
-  </a>
+  <a [routerLink]="['user']" class="nav-user"></a>
+  <button (click)="theme()" class="theme">Theme</button>
 </div>

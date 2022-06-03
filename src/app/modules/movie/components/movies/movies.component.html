@@ -6,15 +6,16 @@
     <app-carousel style="width: 100%"></app-carousel>
 
     <div class="main-movies">
+      <hr>
+      <div class="chose-film-block">
+        <form [formGroup]="form" (submit)="search()" class="">
+          <input type="text" formControlName="name" placeholder="film title..."/>
+        </form>
+        <span class="chose-film-text">Choose a movie by title</span>
+      </div>
+
+
       <div class="movies">
-
-        <div>
-          <form [formGroup]="form" (submit)="search()">
-            <input type="text" formControlName="name"/>
-          </form>
-        </div>
-
-
         <app-movie *ngFor="let movie of movies" [movie]="movie"></app-movie>
       </div>
 

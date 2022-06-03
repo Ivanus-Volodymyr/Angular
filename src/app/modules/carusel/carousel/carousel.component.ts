@@ -18,8 +18,8 @@ export class CarouselComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.movieDataService.storage.subscribe(value => {
-      this.movies = value.results
+    this.movieDataService.storageVote.subscribe(value => {
+      this.movies = value
     });
     this.img = urls.img;
     this.itemsPerSlide = this.mobileDevice() ? 2 : 4;

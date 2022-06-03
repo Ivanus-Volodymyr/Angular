@@ -13,3 +13,7 @@ body{
   align-items: center;
   justify-content: center;
 }
+.theme{
+  background-color: #cad1d7;
+  transition: 2s;
+}
